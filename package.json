@@ -3,12 +3,6 @@
   "version": "7.0.4",
   "description": "React Native package to interface the ironSource SDK.  https://ironsrc.com",
   "main": "index.js",
-  "scripts": {
-    "postinstall": "./scripts/linkSKAdNetwork.sh SU67R6K2V3 ../../.."
-  },
-  "bin": {
-    "rnis-linker": "./scripts/linkSKAdNetwork.sh"
-  },
   "keywords": [
     "react-native",
     "ironsrc",
