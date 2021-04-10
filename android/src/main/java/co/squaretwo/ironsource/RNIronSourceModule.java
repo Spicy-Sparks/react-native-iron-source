@@ -28,6 +28,30 @@ public class RNIronSourceModule extends ReactContextBaseJavaModule {
         return TAG;
     }
 
+    /**
+       * Call from Activity.onResume:
+       *   @Override
+       *   public void onResume() {
+       *     super.onResume();
+       *     RNIronSourceModule.onResume(this);
+       *   }
+       */
+    public static void onResume(Activity reactActivity) {
+        IronSource.onResume(reactActivity);
+    }
+
+    /**
+      * Call from Activity.onPause:
+      *   @Override
+      *   public void onPause() {
+      *     super.onPause();
+      *     RNIronSourceModule.onPause(this);
+      *   }
+      */
+    public static void onPause(Activity reactActivity) {
+      IronSource.onPause(reactActivity);
+    }
+
     @ReactMethod
     public void initializeIronSource(final String appId, final String userId, final ReadableMap options, final Promise promise) {
         new Handler(Looper.getMainLooper()).post(new Runnable() {
@@ -50,15 +74,5 @@ public class RNIronSourceModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void setConsent(boolean consent) {
         IronSource.setConsent(consent);
-    }
-
-    @ReactMethod
-    public void getAdvertiserId(Promise promise) {
-      try {
-        promise.resolve(IronSource.getAdvertiserId(this.reactContext));
-      }
-      catch (Exception e) {
-        promise.resolve(null);
-      }
     }
 }
