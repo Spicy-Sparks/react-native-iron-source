@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/squaretwo/react-native-iron-source"
   s.license      = "MIT"
   s.author       = { "Ben Yee" => "benyee@gmail.com" }
-  s.platform     = :ios, "7.0"
+  s.platform     = :ios, "8.0"
   s.source       = { :git => "https://github.com/wowmaking/react-native-iron-source", tag: "v" + s.version.to_s }
   s.requires_arc = true
   s.default_subspec = 'Core'
