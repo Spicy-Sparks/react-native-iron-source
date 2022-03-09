@@ -133,4 +133,14 @@ public class RNIronSourceOfferwallModule extends ReactContextBaseJavaModule {
     private void sendEvent(String eventName, @Nullable WritableMap params) {
         getReactApplicationContext().getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class).emit(eventName, params);
     }
+
+    @ReactMethod
+    public void addListener(String eventName) {
+      // Keep: Required for RN built in Event Emitter Calls.
+    }
+
+    @ReactMethod
+    public void removeListeners(double count) {
+      // Keep: Required for RN built in Event Emitter Calls.
+    }
 }
