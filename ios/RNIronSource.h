@@ -8,13 +8,13 @@
 #if __has_include(<React/RCTEventEmitter.h>)
 #import <React/RCTEventEmitter.h>
 #else
-#import "RCTEventEmitter"
+#import "RCTEventEmitter.h"
 #endif
 
 #import "IronSource/IronSource.h"
 #import "React/RCTConvert.h"
 
-@interface RNIronSource : NSObject <RCTBridgeModule>
+@interface RNIronSource : RCTEventEmitter <RCTBridgeModule, ISImpressionDataDelegate>
 
 @end
 
