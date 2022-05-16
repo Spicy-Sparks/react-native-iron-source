@@ -76,12 +76,16 @@ public class RNIronSourceRewardedVideoModule extends ReactContextBaseJavaModule 
                 @Override
                 public void onRewardedVideoAdShowFailed(IronSourceError se) {
                     Log.d(TAG, "onRewardedVideoAdShowFailed() called!");
-                    sendEvent("ironSourceRewardedVideoClosedByError", null);
+                    WritableMap map = Arguments.createMap();
+                    map.putInt("errorCode", se.getErrorCode());
+                    map.putString("errorMessage", se.getErrorMessage());
+                    sendEvent("ironSourceRewardedVideoClosedByError", map);
                 }
 
                 @Override
                 public void onRewardedVideoAdClicked(Placement placement) {
                     Log.d(TAG, "onRewardedVideoAdClicked() called!");
+                    sendEvent("ironSourceRewardedVideoAdClicked", null);
                 }
                 /*
                  * Note: the events below are not available for
