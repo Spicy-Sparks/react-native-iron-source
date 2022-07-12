@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.default_subspec = 'Core'
 
-  s.dependency "React"
+  s.dependency "React-Core"
   s.dependency "IronSourceSDK", ">= 7.0.3"
 
   s.subspec "Core" do |ss|
