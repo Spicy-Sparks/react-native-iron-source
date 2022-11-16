@@ -116,15 +116,17 @@ public class RNIronSourceModule extends ReactContextBaseJavaModule {
         return new ImpressionDataListener() {
             @Override
             public void onImpressionSuccess (ImpressionData impressionData){
-                WritableMap data = Arguments.createMap();
-                data.putDouble("revenue", impressionData.getRevenue());
-                data.putString("ad_network", impressionData.getAdNetwork());
                 try {
-                    data.putMap("all_data", Utility.convertJsonToMap(impressionData.getAllData()));
-                } catch (JSONException e) {
+                    WritableMap data = Arguments.createMap();
+                    data.putDouble("revenue", impressionData.getRevenue());
+                    data.putString("ad_network", impressionData.getAdNetwork());
+                    try {
+                        data.putMap("all_data", Utility.convertJsonToMap(impressionData.getAllData()));
+                    } catch (JSONException e) {}
+                    sendEvent("impressionDataDidSucceed", data);
+                } catch (Exception e) {
 
                 }
-                sendEvent("impressionDataDidSucceed", data);
             }
         };
     }
